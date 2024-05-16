@@ -1,0 +1,19 @@
+{
+  "name": "myyoutubeclone",
+  "version": "1.0.0",
+  "description": "a backend like youtube",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "author": "Ajay Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
