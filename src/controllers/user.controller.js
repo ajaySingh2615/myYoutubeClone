@@ -24,7 +24,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "All fields are required!");
   }
 
-  const existedUser = User.findOne({
+  const existedUser = await User.findOne({
     $or: [{ username }, { email }],
   });
 
@@ -59,12 +59,14 @@ const registerUser = asyncHandler(async (req, res) => {
     "-password -refreshToken"
   );
 
+  console.log("createdUser", createdUser);
+
   if (!createdUser) {
     throw new ApiError(500, "Something went wrong while registering the user!");
   }
 
   return res
-    .send(201)
+    .status(201)
     .json(new ApiResponse(200, createdUser, "User registered successfully!"));
 });
 
